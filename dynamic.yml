@@ -1,0 +1,46 @@
+http:
+  routers:
+    whoami:
+      rule: "Host(`whoami.external-domain.com`)"
+      service: "whoami"
+      tls:
+        certresolver: "myresolver"
+      middlewares:
+        - set-original-host
+        - preserve-request-scheme
+        - preserve-request-host
+    hasura:
+      rule: "Host(`api.external-domain.com`)"
+      service: "hasura"
+      tls:
+        certresolver: "myresolver"
+      middlewares:
+        - set-original-host
+        - preserve-request-scheme
+        - preserve-request-host
+
+  middlewares:
+    set-original-host:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Host: { host }
+
+    preserve-request-scheme:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: { scheme }
+
+    preserve-request-host:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Server: { host }
+
+  services:
+    whoami:
+      loadBalancer:
+        servers:
+          - url: "https://whoami.external-domain.com"
+    hasura:
+      loadBalancer:
+        servers:
+          - url: "https://api.external-domain.com"
