@@ -2,6 +2,8 @@
 
 A Dockerized Homelab Starter kit for you to modify and extend.
 
+Most services were developed by [linuxserver.io](https://www.linuxserver.io/) and documentation can be found at [docs.linuxserver.io](https://docs.linuxserver.io/)
+
 ## Includes the following services
 
 - [Traefik](https://github.com/traefik/traefik)
@@ -37,19 +39,19 @@ You **MUST** update all 3 files with your own settings.
 
 # Service URLs
 
-| Service   | URL                  |
-| --------- | -------------------- |
-| Plex      | plex.domain.com      |
-| Overseerr | overseerr.domain.com |
-| Nextcloud | cloud.domain.com     |
-| Fireshare | videos.domain.com    |
-| NZBGet    | localhost:6789       |
-| Unmanic   | localhost:8888       |
-| Homarr    | localhost:7575       |
-| Sonarr    | localhost:8989       |
-| Radarr    | localhost:7878       |
-| Readarr   | localhost:8787       |
-| Bazarr    | localhost:6767       |
+| Service   | URL                  | Proxied |
+| --------- | -------------------- | ------- |
+| Plex      | plex.domain.com      | Yes     |
+| Overseerr | overseerr.domain.com | Yes     |
+| Nextcloud | cloud.domain.com     | Yes     |
+| Fireshare | videos.domain.com    | Yes     |
+| NZBGet    | localhost:6789       | no      |
+| Unmanic   | localhost:8888       | no      |
+| Homarr    | localhost:7575       | no      |
+| Sonarr    | localhost:8989       | no      |
+| Radarr    | localhost:7878       | no      |
+| Readarr   | localhost:8787       | no      |
+| Bazarr    | localhost:6767       | no      |
 
 # Commands
 
