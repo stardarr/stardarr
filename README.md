@@ -1,6 +1,6 @@
 # Stardarr
 
-A Dockerized Homelab Starter kit for you to modify and extend.
+A Dockerized Homelab starter kit for you to modify and extend.
 
 Most services were developed by [linuxserver.io](https://www.linuxserver.io/) and documentation can be found at [docs.linuxserver.io](https://docs.linuxserver.io/)
 
