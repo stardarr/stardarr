@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  nzbget:
+    image: lscr.io/linuxserver/nzbget:latest
+    container_name: nzbget
+    restart: unless-stopped
+    networks:
+      - internal
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+      - ${DOWNLOADS_DIRECTORY}:/downloads
+    ports:
+      - 6789:6789
+
+networks:
+  internal:
+    name: internal_network

@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    restart: unless-stopped
+    networks:
+      - internal
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+      - ${TV_LIBRARY}:/tv
+      # - ${HQTV_LIBRARY}:/HQTV # optional
+      - ${DOWNLOAD_DIRECTORY}:/downloads
+    ports:
+      - 8989:8989
+
+networks:
+  internal:
+    name: internal_network

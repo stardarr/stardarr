@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    restart: always
+    networks:
+      - web
+    links:
+      - nextcloud-postgres
+    depends_on:
+      - "nextcloud-postgres"
+    volumes:
+      - ${STORAGE_DIRECTORY}:/var/www/html
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextcloud.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"
+
+  nextcloud-postgres:
+    image: postgres:12
+    container_name: "nextcloud-postgres"
+    restart: always
+    volumes:
+      - ${DATABASE_DIRECTORY}:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+networks:
+  web:
+    external: true

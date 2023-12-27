@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseerr
+    restart: unless-stopped
+    networks:
+      - web
+      - internal
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.overseerr.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.overseerr.entrypoints=websecure"
+      - "traefik.http.routers.overseerr.tls.certresolver=myresolver"
+      - "traefik.http.services.overseerr.loadbalancer.server.port=5055"
+    ports:
+      - 5055:5055
+
+networks:
+  web:
+    external: true
+  internal:
+    external: true

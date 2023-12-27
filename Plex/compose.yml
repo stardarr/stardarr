@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    restart: unless-stopped
+    networks:
+      - web
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+      - ${TV_LIBRARY}:/tv
+      - ${HQTV_LIBRARY}:/HQTV
+      - ${MOVIE_LIBRARY}:/movies
+      - ${MUSIC_LIBRARY}:/music
+    devices:
+      - /dev/dri:/dev/dri # GPU Support
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.plex.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.plex.entrypoints=websecure"
+      - "traefik.http.routers.plex.tls.certresolver=myresolver"
+      - "traefik.http.services.plex.loadbalancer.server.port=32400"
+    ports:
+      - 32400:32400
+
+networks:
+  web:
+    external: true

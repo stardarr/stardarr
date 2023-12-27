@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    restart: unless-stopped
+    networks:
+      - internal
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+      - ${MOVIE_LIBRARY}:/movies
+      - ${TV_LIBRARY}:/tv
+      # - ${HQTV_LIBRARY}:/hqtv
+    ports:
+      - 6767:6767
+
+networks:
+  internal:
+    name: internal_network

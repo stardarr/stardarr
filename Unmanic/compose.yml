@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  unmanic:
+    container_name: unmanic
+    image: josh5/unmanic:latest
+    restart: unless-stopped
+    networks:
+      - internal
+    devices:
+      - /dev/dri:/dev/dri # GPU Support
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+      - ${TV_LIBRARY}:/library/tv
+      - ${MOVIE_LIBRARY}:/library/movies
+      - ${CACHE_DIRECTORY}:/tmp/unmanic
+    ports:
+      - 8888:8888
+
+networks:
+  internal:
+    name: internal_network

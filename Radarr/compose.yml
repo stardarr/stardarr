@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    restart: unless-stopped
+    networks:
+      - internal
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+      - ${MOVIE_LIBRARY}:/movies
+      - ${DOWNLOAD_DIRECTORY}:/downloads
+    ports:
+      - 7878:7878
+
+networks:
+  internal:
+    name: internal_network
