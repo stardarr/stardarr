@@ -37,21 +37,21 @@ docker network create internal_network
 docker network create web
 
 cd CloudflareDDNS
-cp .env.example .env
-~ modify .env ~
-docker compose up -d
+cp .env.example .env # Copy the example environment file
+nano .env # Customize your configuration
+docker compose up -d # Start the service
 cd ..
 
 cd Traefik
-cp .env.example .env
-~ modify .env ~
-docker compose up -d
+cp .env.example .env # Copy the example environment file
+nano .env # Customize your configuration
+docker compose up -d # Start the service
 cd ..
 
 cd <Every Other Service>
-cp .env.example .env
-~ modify .env ~
-docker compose up -d
+cp .env.example .env # Copy the example environment file
+nano .env # Customize your configuration
+docker compose up -d # Start the service
 cd ..
 ```
 
