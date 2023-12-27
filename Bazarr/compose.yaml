@@ -11,9 +11,9 @@ services:
       - .env
     volumes:
       - ${CONFIG_DIRECTORY}:/config
-      - ${MOVIE_LIBRARY}:/movies
       - ${TV_LIBRARY}:/tv
-      # - ${HQTV_LIBRARY}:/hqtv
+      - ${MOVIE_LIBRARY}:/movies
+      # - ${HQTV_LIBRARY}:/hqtv # optional
     ports:
       - 6767:6767
 

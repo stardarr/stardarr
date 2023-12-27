@@ -12,7 +12,6 @@ services:
       - .env
     volumes:
       - ${CONFIG_DIRECTORY}:/config
-
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.overseerr.rule=Host(`${DOMAIN}`)"
