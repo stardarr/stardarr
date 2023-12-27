@@ -48,6 +48,7 @@ You **MUST** update all 3 files with your own settings.
 | Overseerr      | overseerr.domain.com | Yes     |
 | Nextcloud      | cloud.domain.com     | Yes     |
 | Fireshare      | videos.domain.com    | Yes     |
+| Home Assistant | localhost:8123       | no      |
 | NZBGet         | localhost:6789       | no      |
 | Unmanic        | localhost:8888       | no      |
 | Homarr         | localhost:7575       | no      |
@@ -55,7 +56,6 @@ You **MUST** update all 3 files with your own settings.
 | Radarr         | localhost:7878       | no      |
 | Readarr        | localhost:8787       | no      |
 | Bazarr         | localhost:6767       | no      |
-| Home Assistant | localhost:8123       | no      |
 
 # Commands
 
