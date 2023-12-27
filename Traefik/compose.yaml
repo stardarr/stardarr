@@ -24,7 +24,7 @@ services:
       - "--certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"
       - "--certificatesresolvers.myresolver.acme.email=${LETSENCRYPT_EMAIL}"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
-      # - "--providers.file.filename=/etc/traefik/dynamic.yml" # Required for external_hosts
+      # - "--providers.file.filename=/etc/traefik/dynamic.yaml" # Required for external_hosts
       - "--providers.file.watch=true"
     env_file:
       - .env
@@ -34,7 +34,7 @@ services:
     #   - "api.external-domain.com:12.34.56.78" # optional
     volumes:
       - "./letsencrypt:/letsencrypt"
-      # - "./dynamic.yml:/etc/traefik/dynamic.yml" # Required for external_hosts
+      # - "./dynamic.yaml:/etc/traefik/dynamic.yaml" # Required for external_hosts
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
       - "80:80"
