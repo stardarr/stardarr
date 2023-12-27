@@ -27,6 +27,8 @@ Documentation for each individual service can be found at their respective home 
 
 ## Quickstart
 
+Setup Cloudflare then:
+
 ```
 git clone https://github.com/stardarr/stardarr.git
 cd stardarr
