@@ -2,11 +2,15 @@
 
 A Dockerized Homelab starter kit for you to modify and extend.
 
-Most services were developed by [linuxserver.io](https://www.linuxserver.io/) and documentation can be found at [docs.linuxserver.io](https://docs.linuxserver.io/)
+Documentation and getting started guide for this repo can be found at [stardarr.dev](https://stardarr.dev).
 
-## Includes the following services
+The majority of the images used in this project are built and hosted by [linuxserver.io](https://www.linuxserver.io/). Documentation about the images can be found at [docs.linuxserver.io](https://docs.linuxserver.io/)
 
-- [Traefik](https://github.com/traefik/traefik)
+Documentation for each individual service can be found at their respective home pages linked below.
+
+## Services
+
+- [Traefik](https://traefik.io/traefik/)
 - [Cloudflare Dynamic DNS](https://github.com/oznu/docker-cloudflare-ddns)
 - [Plex](https://www.plex.tv/)
 - [Overseer](https://overseerr.dev/)
@@ -21,24 +25,37 @@ Most services were developed by [linuxserver.io](https://www.linuxserver.io/) an
 - [Readarr](https://readarr.com/)
 - [Bazarr](https://www.bazarr.media/)
 
-## Installation
+## Quickstart
 
-Detailed installation instructions can be found at [stardarr.dev](https://stardarr.dev)
+Setup Cloudflare then:
 
-```
+```bash
+# Clone the repo
 git clone https://github.com/stardarr/stardarr.git
 cd stardarr
-~ edit the .env files ~
-docker-compose up -d
+
+# Create the Docker Networks
+docker network create internal_network
+docker network create web
+
+cd CloudflareDDNS
+cp .env.example .env # Copy the example environment file
+nano .env # Customize your configuration
+docker compose up -d # Start the service
+cd ..
+
+cd Traefik
+cp .env.example .env # Copy the example environment file
+nano .env # Customize your configuration
+docker compose up -d # Start the service
+cd ..
+
+cd <Every Other Service>
+cp .env.example .env # Copy the example environment file
+nano .env # Customize your configuration
+docker compose up -d # Start the service
+cd ..
 ```
-
-## .env files
-
-You **MUST** update all 3 files with your own settings.
-
-- .env
-- .env.cloudflare
-- .env.nextcloud
 
 # Service URLs
 
@@ -56,25 +73,3 @@ You **MUST** update all 3 files with your own settings.
 | Radarr         | localhost:7878       | no      |
 | Readarr        | localhost:8787       | no      |
 | Bazarr         | localhost:6767       | no      |
-
-# Commands
-
-### Starting the Services
-
-`docker-compose up -d`
-
-### Stopping the Services
-
-`docker-compose down`
-
-### Updating the Services
-
-```
-docker-compose down
-docker-compose pull
-docker-compose up -d
-```
-
-## External Hosts (Optional)
-
-An example dynamic.yml config for Traefik has been provided. You will need to update it with your external domain and IP, and move it to the traefik folder of your app directory.

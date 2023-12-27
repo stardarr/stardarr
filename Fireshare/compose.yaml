@@ -1,0 +1,21 @@
+services:
+  fireshare:
+    container_name: fireshare
+    image: shaneisrael/fireshare:latest
+    networks:
+      - web
+    volumes:
+      - ${DATABASE_DIRECTORY}:/data
+      - ${PROCESSED_DIRECTORY}/metadata:/processed
+      - ${VIDEO_DIRECTORY}:/videos
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fireshare.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.fireshare.entrypoints=websecure"
+      - "traefik.http.routers.fireshare.tls.certresolver=myresolver"
+
+networks:
+  web:
+    external: true

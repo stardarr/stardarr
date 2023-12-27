@@ -1,0 +1,7 @@
+services:
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns:latest
+    container_name: CFDDNS
+    restart: always
+    env_file:
+      - .env
