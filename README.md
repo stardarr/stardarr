@@ -30,9 +30,11 @@ Documentation for each individual service can be found at their respective home 
 Setup Cloudflare then:
 
 ```bash
+# Clone the repo
 git clone https://github.com/stardarr/stardarr.git
 cd stardarr
 
+# Create the Docker Networks
 docker network create internal_network
 docker network create web
 
