@@ -14,7 +14,7 @@ Most services were developed by [linuxserver.io](https://www.linuxserver.io/) an
 - [Nextcloud](https://nextcloud.com/)
 - [Fireshare](https://github.com/ShaneIsrael/fireshare)
 - [Home Assistant](https://www.home-assistant.io/)
-- [NZBGet](https://nzbget.net/)
+- [SABnzbd](https://sabnzbd.org/)
 - [Homarr](https://homarr.dev/)
 - [Sonarr](https://sonarr.tv/)
 - [Radarr](https://radarr.video/)
@@ -49,7 +49,7 @@ You **MUST** update all 3 files with your own settings.
 | Nextcloud      | cloud.domain.com     | Yes     |
 | Fireshare      | videos.domain.com    | Yes     |
 | Home Assistant | localhost:8123       | no      |
-| NZBGet         | localhost:6789       | no      |
+| SABnzbd        | localhost:8080       | no      |
 | Unmanic        | localhost:8888       | no      |
 | Homarr         | localhost:7575       | no      |
 | Sonarr         | localhost:8989       | no      |
