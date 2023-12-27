@@ -15,7 +15,7 @@ services:
     volumes:
       - ${CONFIG_DIRECTORY}:/config
       - ${TV_LIBRARY}:/tv
-      - ${HQTV_LIBRARY}:/HQTV
+      # - ${HQTV_LIBRARY}:/HQTV # optional
       - ${MOVIE_LIBRARY}:/movies
       - ${MUSIC_LIBRARY}:/music
     devices:
