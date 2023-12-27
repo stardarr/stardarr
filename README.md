@@ -29,7 +29,7 @@ Documentation for each individual service can be found at their respective home 
 
 Setup Cloudflare then:
 
-```
+```bash
 git clone https://github.com/stardarr/stardarr.git
 cd stardarr
 
