@@ -24,3 +24,31 @@ Documentation for each individual service can be found at their respective home 
 - [Radarr](https://radarr.video/)
 - [Readarr](https://readarr.com/)
 - [Bazarr](https://www.bazarr.media/)
+
+## Quickstart
+
+```
+git clone https://github.com/stardarr/stardarr.git
+cd stardarr
+
+docker network create internal_network
+docker network create web
+
+cd CloudflareDDNS
+cp .env.example .env
+~ modify .env ~
+docker compose up -d
+cd ..
+
+cd Traefik
+cp .env.example .env
+~ modify .env ~
+docker compose up -d
+cd ..
+
+cd <Every Other Service>
+cp .env.example .env
+~ modify .env ~
+docker compose up -d
+cd ..
+```
