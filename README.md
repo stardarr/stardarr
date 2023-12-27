@@ -22,6 +22,8 @@ Most services were developed by [linuxserver.io](https://www.linuxserver.io/) an
 
 ## Installation
 
+Detailed installation instructions can be found at [stardarr.dev](https://stardarr.dev)
+
 ```
 git clone https://github.com/stardarr/stardarr.git
 cd stardarr
