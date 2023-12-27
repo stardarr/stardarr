@@ -26,4 +26,5 @@ networks:
   web:
     external: true
   internal:
-    external: true
+    external:
+      name: internal_network

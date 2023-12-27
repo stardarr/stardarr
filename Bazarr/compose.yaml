@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  sonarr:
-    image: lscr.io/linuxserver/sonarr:latest
-    container_name: sonarr
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
     restart: unless-stopped
     networks:
       - internal
@@ -11,12 +11,13 @@ services:
       - .env
     volumes:
       - ${CONFIG_DIRECTORY}:/config
+      - ${MOVIE_LIBRARY}:/movies
       - ${TV_LIBRARY}:/tv
-      # - ${HQTV_LIBRARY}:/HQTV # optional
-      - ${DOWNLOAD_DIRECTORY}:/downloads
+      # - ${HQTV_LIBRARY}:/hqtv
     ports:
-      - 8989:8989
+      - 6767:6767
 
 networks:
   internal:
-    name: internal_network
+    external:
+      name: internal_network

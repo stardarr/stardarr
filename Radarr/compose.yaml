@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  readarr:
-    image: lscr.io/linuxserver/readarr:develop
-    container_name: readarr
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
     restart: unless-stopped
     networks:
       - internal
@@ -11,11 +11,12 @@ services:
       - .env
     volumes:
       - ${CONFIG_DIRECTORY}:/config
-      - ${BOOK_LIBRARY}:/books
+      - ${MOVIE_LIBRARY}:/movies
       - ${DOWNLOAD_DIRECTORY}:/downloads
     ports:
-      - 8787:8787
+      - 7878:7878
 
 networks:
   internal:
-    name: internal_network
+    external:
+      name: internal_network

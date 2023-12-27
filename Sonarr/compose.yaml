@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  radarr:
-    image: lscr.io/linuxserver/radarr:latest
-    container_name: radarr
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
     restart: unless-stopped
     networks:
       - internal
@@ -11,11 +11,13 @@ services:
       - .env
     volumes:
       - ${CONFIG_DIRECTORY}:/config
-      - ${MOVIE_LIBRARY}:/movies
+      - ${TV_LIBRARY}:/tv
+      # - ${HQTV_LIBRARY}:/HQTV # optional
       - ${DOWNLOAD_DIRECTORY}:/downloads
     ports:
-      - 7878:7878
+      - 8989:8989
 
 networks:
   internal:
-    name: internal_network
+    external:
+      name: internal_network

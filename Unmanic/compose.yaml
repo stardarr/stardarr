@@ -21,4 +21,5 @@ services:
 
 networks:
   internal:
-    name: internal_network
+    external:
+      name: internal_network
