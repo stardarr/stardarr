@@ -8,7 +8,7 @@ The majority of the images used in this project are built and hosted by [linuxse
 
 Documentation for each individual service can be found at their respective home pages linked below.
 
-## Includes the following services
+## Services
 
 - [Traefik](https://traefik.io/traefik/)
 - [Cloudflare Dynamic DNS](https://github.com/oznu/docker-cloudflare-ddns)
