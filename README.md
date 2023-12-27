@@ -66,7 +66,7 @@ cd ..
 | Nextcloud      | cloud.domain.com     | Yes     |
 | Fireshare      | videos.domain.com    | Yes     |
 | Home Assistant | localhost:8123       | no      |
-| NZBGet         | localhost:6789       | no      |
+| SABnzbd        | localhost:8080       | no      |
 | Unmanic        | localhost:8888       | no      |
 | Homarr         | localhost:7575       | no      |
 | Sonarr         | localhost:8989       | no      |
