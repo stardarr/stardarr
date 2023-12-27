@@ -225,3 +225,14 @@ services:
       - "traefik.http.routers.fireshare.rule=Host(`videos.${DOMAIN}`)"
       - "traefik.http.routers.fireshare.entrypoints=websecure"
       - "traefik.http.routers.fireshare.tls.certresolver=myresolver"
+
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ${APP_DIRECTORY}/homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host

@@ -13,6 +13,7 @@ Most services were developed by [linuxserver.io](https://www.linuxserver.io/) an
 - [Unmanic](https://docs.unmanic.app/)
 - [Nextcloud](https://nextcloud.com/)
 - [Fireshare](https://github.com/ShaneIsrael/fireshare)
+- [Home Assistant](https://www.home-assistant.io/)
 - [NZBGet](https://nzbget.net/)
 - [Homarr](https://homarr.dev/)
 - [Sonarr](https://sonarr.tv/)
@@ -41,19 +42,20 @@ You **MUST** update all 3 files with your own settings.
 
 # Service URLs
 
-| Service   | URL                  | Proxied |
-| --------- | -------------------- | ------- |
-| Plex      | plex.domain.com      | Yes     |
-| Overseerr | overseerr.domain.com | Yes     |
-| Nextcloud | cloud.domain.com     | Yes     |
-| Fireshare | videos.domain.com    | Yes     |
-| NZBGet    | localhost:6789       | no      |
-| Unmanic   | localhost:8888       | no      |
-| Homarr    | localhost:7575       | no      |
-| Sonarr    | localhost:8989       | no      |
-| Radarr    | localhost:7878       | no      |
-| Readarr   | localhost:8787       | no      |
-| Bazarr    | localhost:6767       | no      |
+| Service        | URL                  | Proxied |
+| -------------- | -------------------- | ------- |
+| Plex           | plex.domain.com      | Yes     |
+| Overseerr      | overseerr.domain.com | Yes     |
+| Nextcloud      | cloud.domain.com     | Yes     |
+| Fireshare      | videos.domain.com    | Yes     |
+| NZBGet         | localhost:6789       | no      |
+| Unmanic        | localhost:8888       | no      |
+| Homarr         | localhost:7575       | no      |
+| Sonarr         | localhost:8989       | no      |
+| Radarr         | localhost:7878       | no      |
+| Readarr        | localhost:8787       | no      |
+| Bazarr         | localhost:6767       | no      |
+| Home Assistant | localhost:8123       | no      |
 
 # Commands
 
