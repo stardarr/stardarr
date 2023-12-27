@@ -1,0 +1,21 @@
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    networks:
+      - internal
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/app/data/configs
+      - ${DATA_DIRECTORY}:/data
+      - ${ICON_DIRECTORY}:/app/public/icons
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "7575:7575"
+
+networks:
+  internal:
+    external:
+      name: internal_network

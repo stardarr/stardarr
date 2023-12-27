@@ -1,0 +1,20 @@
+services:
+  readarr:
+    image: lscr.io/linuxserver/readarr:develop
+    container_name: readarr
+    restart: unless-stopped
+    networks:
+      - internal
+    env_file:
+      - .env
+    volumes:
+      - ${CONFIG_DIRECTORY}:/config
+      - ${BOOK_LIBRARY}:/books
+      - ${DOWNLOAD_DIRECTORY}:/downloads
+    ports:
+      - 8787:8787
+
+networks:
+  internal:
+    external:
+      name: internal_network

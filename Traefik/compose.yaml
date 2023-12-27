@@ -1,0 +1,44 @@
+services:
+  traefik:
+    image: "traefik:v2.9"
+    container_name: "traefik"
+    restart: always
+    networks:
+      - web
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    command:
+      - "--accesslog=true"
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.dnschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.dnschallenge.provider=cloudflare"
+      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=${LETSENCRYPT_EMAIL}"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      # - "--providers.file.filename=/etc/traefik/dynamic.yaml" # Required for external_hosts
+      - "--providers.file.watch=true"
+    env_file:
+      - .env
+    # extra_hosts:
+    #   - "external-domain.com:192.168.1.6" # optional
+    #   - "whoami.external-domain.com:10.0.0.55" # optional
+    #   - "api.external-domain.com:12.34.56.78" # optional
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      # - "./dynamic.yaml:/etc/traefik/dynamic.yaml" # Required for external_hosts
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+
+networks:
+  web:
+    external: true
