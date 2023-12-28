@@ -11,7 +11,7 @@ services:
       - ${DOWNLOADS_DIRECTORY}:/downloads #optional
       - ${INCOMPLETE_DOWNLOADS_DIRECTORY}:/incomplete-downloads #optional
     ports:
-      - 8080:8080
+      - 8088:8080
     restart: unless-stopped
 
 networks:
