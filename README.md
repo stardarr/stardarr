@@ -13,7 +13,7 @@ Documentation for each individual service can be found at their respective home 
 - [Traefik](https://traefik.io/traefik/)
 - [Cloudflare Dynamic DNS](https://github.com/oznu/docker-cloudflare-ddns)
 - [Plex](https://www.plex.tv/)
-- [Overseer](https://overseerr.dev/)
+- [Overseerr](https://overseerr.dev/)
 - [Unmanic](https://docs.unmanic.app/)
 - [Nextcloud](https://nextcloud.com/)
 - [Fireshare](https://github.com/ShaneIsrael/fireshare)
