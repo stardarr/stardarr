@@ -2,6 +2,8 @@ services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
+    networks:
+      - internal
     environment:
       - PUID=1000
       - PGID=1000
